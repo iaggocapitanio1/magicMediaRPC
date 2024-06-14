@@ -29,9 +29,11 @@ This project contains a Locust load testing script designed to interact with a g
 │   └── vacancy_pb2.py
 ├── utils/
 │   ├── __init__.py
-│   └── users.
+│   ├── grpcUser.py
+│   └── users.py
 ├── .gitignore
 ├── main.py
+|── locust.log
 ├── locustfile.py
 ├── requirements.txt
 └── README.md
@@ -74,7 +76,7 @@ This project contains a Locust load testing script designed to interact with a g
    ```bash
    locust -f locustfile.py
    ```
-
+![img.png](img.png)
 3. Open your browser and navigate to `http://localhost:8089` to access the Locust web interface.
 
 4. Configure the number of users to simulate and the spawn rate, then start the test.
