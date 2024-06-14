@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  evans:
+    image: ghcr.io/ktr0731/evans:latest
+    volumes:
+      - ./proto:/mount:ro
+    environment:
+      - HOST=vacancies.cyrextech.net
+      - PORT=7823
+    command: >
+      repl --path /mount
+           --proto auth_service.proto
+           --proto rpc_create_vacancy.proto
+           --proto rpc_signin_user.proto
+           --proto rpc_signup_user.proto
+           --proto rpc_update_vacancy.proto
+           --proto user.proto
+           --proto user_service.proto
+           --proto vacancy.proto
+           --proto vacancy_service.proto
+           --host $$HOST
+           --port $$PORT
+    networks:
+      - default
+
+networks:
+  default:
+    external: false
